@@ -25,23 +25,22 @@ class App extends Component {
     let result = await fetch("http://localhost:8082/api/books")
     let data = await result.json()
     this.setState({
-      books: data
+      books: data,
     })
   }
 
-  addItem = (e) => {
-    e.preventDefault()
+  addItem = (title, price) => {
     let cartItems = this.state.checkoutItemsList
     let newItem = {
       id: this.state.checkoutItemsList.length +1,
-      title: this.state.books.title, 
-      price: this.state.books.price, 
+      title: title, 
+      price: price, 
     }
     const newCartList = [...cartItems, newItem]
-    console.log(newCartList)
-    // this.setState({
-    //   checkoutItemsList: newCartList, 
-    }
+    this.setState({
+      checkoutItemsList: newCartList, 
+    })
+  }
 
   render() {
     return (
@@ -55,7 +54,7 @@ class App extends Component {
               )
             })}
         </div>
-        <Checkout />
+        <Checkout checkoutItemsList={this.state.checkoutItemsList}/>
         </div>
       </div>
     );

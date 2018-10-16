@@ -1,5 +1,5 @@
 import React from 'react'; 
-import CheckoutItem from '../CheckoutItem';
+import CheckoutItem from './CheckoutItem';
 
 
 const Checkout = (props) => {
