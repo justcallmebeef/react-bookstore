@@ -8,7 +8,9 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      books: []
+      checkoutItemsList: [],
+      books: [], 
+      total: 0,
     }
   }
 
@@ -22,11 +24,24 @@ class App extends Component {
     // })
     let result = await fetch("http://localhost:8082/api/books")
     let data = await result.json()
-    console.log("data", data)
     this.setState({
       books: data
     })
   }
+
+  addItem = (e) => {
+    e.preventDefault()
+    let cartItems = this.state.checkoutItemsList
+    let newItem = {
+      id: this.state.checkoutItemsList.length +1,
+      title: this.state.books.title, 
+      price: this.state.books.price, 
+    }
+    const newCartList = [...cartItems, newItem]
+    console.log(newCartList)
+    // this.setState({
+    //   checkoutItemsList: newCartList, 
+    }
 
   render() {
     return (
@@ -34,9 +49,9 @@ class App extends Component {
         <Search />
         <div className="row">
         <div className="cardContainer">
-            {this.state.books.map(function(book){
+            {this.state.books.map((book) => {
               return (
-              <Card book={book}/>
+              <Card book={book} addItem={this.addItem}/>
               )
             })}
         </div>

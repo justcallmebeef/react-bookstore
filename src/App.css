@@ -10,13 +10,17 @@
   margin-left: 2em;
 }
 
-.checkout {
+.checkoutContainer {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
   width: 20vw;
-  height: 50vh;
+  height: 100vh;
 }
 
 nav {
   margin-bottom: 2em;
+}
+
+.list-group {
+  width: 20vw;
 }
