@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   justify-items: flex-start;
   width: 50vw;
+  margin-left: 2em;
 }
 
 .checkout {
@@ -14,4 +15,8 @@
   justify-content: flex-end;
   width: 20vw;
   height: 50vh;
+}
+
+nav {
+  margin-bottom: 2em;
 }
