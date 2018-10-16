@@ -34,11 +34,15 @@ class App extends Component {
     let newItem = {
       id: this.state.checkoutItemsList.length +1,
       title: title, 
-      price: price, 
+      price: Number(price), 
     }
     const newCartList = [...cartItems, newItem]
+    let total = this.state.total
+    console.log(newCartList[newCartList.length-1].price)
+      total += newCartList[newCartList.length-1].price
     this.setState({
       checkoutItemsList: newCartList, 
+      total: total 
     })
   }
 
@@ -54,7 +58,7 @@ class App extends Component {
               )
             })}
         </div>
-        <Checkout checkoutItemsList={this.state.checkoutItemsList}/>
+        <Checkout total={this.state.total} checkoutItemsList={this.state.checkoutItemsList}/>
         </div>
       </div>
     );

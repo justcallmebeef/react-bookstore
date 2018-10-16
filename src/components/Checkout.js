@@ -15,6 +15,7 @@ const Checkout = (props) => {
                 </div>
                 <CheckoutItem checkoutItemsList={props.checkoutItemsList} />
             </div>
+            <h2>Total: ${props.total}</h2>
         </div>
     )
 }

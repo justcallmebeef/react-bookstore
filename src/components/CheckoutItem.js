@@ -7,7 +7,7 @@ const CheckoutItem = (props) => {
             <div className="list-group-item" key={itemBooks.id}>
                 <div className="row">
                     <div className="col-md-8">{itemBooks.title}</div>
-                    <div className="col-md-2">{itemBooks.price}</div>
+                    <div className="col-md-2">${itemBooks.price}</div>
                 </div>
             </div>
         )
