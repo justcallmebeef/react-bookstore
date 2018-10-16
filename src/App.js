@@ -32,7 +32,8 @@ class App extends Component {
     return (
       <div className="App">
         <Search />
-        <div className="container">
+        <div className="row">
+        <div className="cardContainer">
             {this.state.books.map(function(book){
               return (
               <Card book={book}/>
@@ -40,6 +41,7 @@ class App extends Component {
             })}
         </div>
         <Checkout />
+        </div>
       </div>
     );
   }

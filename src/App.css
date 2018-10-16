@@ -2,8 +2,16 @@
   width: 18rem;
 }
 
-.container {
+.cardContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-items: flex-start;
+  width: 50vw;
+}
+
+.checkout {
+  display: flex;
+  justify-content: flex-end;
+  width: 20vw;
+  height: 50vh;
 }
