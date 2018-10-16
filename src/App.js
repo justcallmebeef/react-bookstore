@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from './components/Card';
 import Search from './components/Search';
+import Checkout from './components/Checkout';
 import './App.css';
 
 class App extends Component {
@@ -31,9 +32,14 @@ class App extends Component {
     return (
       <div className="App">
         <Search />
+        <div className="container">
             {this.state.books.map(function(book){
-              return <Card book={book}/>
+              return (
+              <Card book={book}/>
+              )
             })}
+        </div>
+        <Checkout />
       </div>
     );
   }
