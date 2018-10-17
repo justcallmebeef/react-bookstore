@@ -24,3 +24,16 @@ nav {
 .list-group {
   width: 20vw;
 }
+
+#clearButton {
+  height: 50px;
+  margin-left: 2em; 
+}
+
+.list-group {
+  height: 85%;
+}
+
+h2 {
+  margin-top: 1em; 
+}

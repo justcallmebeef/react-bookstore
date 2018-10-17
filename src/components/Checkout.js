@@ -9,13 +9,14 @@ const Checkout = (props) => {
             <div className="list-group">
                 <div className="list-group-item">
                     <div className="row">
-                        <div className="col-md-4"><b>Product</b></div>
-                        <div className="col-md-4"><b>Price</b></div>
+                        <div className="col-md-6"><b>Product</b></div>
+                        <div className="col-md-6"><b>Price</b></div>
                     </div>
                 </div>
                 <CheckoutItem checkoutItemsList={props.checkoutItemsList} />
+                <h2>Total: ${props.total}</h2>
+            <button className="btn btn-primary" id="clearButton" onClick={props.clear}>Empty Cart</button>
             </div>
-            <h2>Total: ${props.total}</h2>
         </div>
     )
 }

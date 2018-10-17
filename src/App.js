@@ -33,7 +33,6 @@ class App extends Component {
     }
     const newCartList = [...cartItems, newItem]
     let total = this.state.total
-    console.log(newCartList[newCartList.length-1].price)
       total += newCartList[newCartList.length-1].price
     this.setState({
       checkoutItemsList: newCartList, 
@@ -44,16 +43,25 @@ class App extends Component {
   handleSearch = (event) => {
     event.preventDefault()
     const value = event.target.value
-    const books = this.findBooks(value, books)
+    const searched = this.state.searched
+    const books = this.findBooks(value, searched)
     this.setState({
       books: books
     })
   }
 
-  findBooks(words, books) {
-    return this.state.books.filter(item => {
+  findBooks(words, searched) {
+    return this.state.searched.filter(item => {
       const regex = new RegExp(words, 'gi')
       return item.title.match(regex) || item.author.match(regex)
+    })
+  }
+
+  clear = (event) => {
+    event.preventDefault()
+    this.setState({
+      checkoutItemsList: [],
+      total: 0,
     })
   }
 
@@ -69,7 +77,7 @@ class App extends Component {
               )
             })}
         </div>
-        <Checkout total={this.state.total} checkoutItemsList={this.state.checkoutItemsList}/>
+        <Checkout total={this.state.total} checkoutItemsList={this.state.checkoutItemsList} clear={this.clear}/>
         </div>
       </div>
     );
