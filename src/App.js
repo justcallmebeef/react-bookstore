@@ -10,22 +10,17 @@ class App extends Component {
     this.state = {
       checkoutItemsList: [],
       books: [], 
+      searched: [],
       total: 0,
     }
   }
 
   async componentDidMount() {
-    console.log("time to fetch!")
-    // fetch("http://localhost:8082/api/books").then(function(thing){
-    //   console.log("here is a thing", thing)
-    //   return thing.json()
-    // }).then(function(data){
-    //   console.log("data", data)
-    // })
     let result = await fetch("http://localhost:8082/api/books")
     let data = await result.json()
     this.setState({
       books: data,
+      searched: data, 
     })
   }
 
@@ -46,10 +41,26 @@ class App extends Component {
     })
   }
 
+  handleSearch = (event) => {
+    event.preventDefault()
+    const value = event.target.value
+    const books = this.findBooks(value, books)
+    this.setState({
+      books: books
+    })
+  }
+
+  findBooks(words, books) {
+    return this.state.books.filter(item => {
+      const regex = new RegExp(words, 'gi')
+      return item.title.match(regex) || item.author.match(regex)
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <Search />
+        <Search handleSearch={this.handleSearch} />
         <div className="row">
         <div className="cardContainer">
             {this.state.books.map((book) => {
