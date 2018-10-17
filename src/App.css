@@ -21,10 +21,6 @@ nav {
   margin-bottom: 2em;
 }
 
-.list-group {
-  width: 20vw;
-}
-
 #clearButton {
   height: 50px;
   margin-left: 2em; 
@@ -32,6 +28,7 @@ nav {
 
 .list-group {
   height: 85%;
+  width: 20vw;
 }
 
 h2 {
