@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    let result = await fetch("http://localhost:8082/api/books")
+    let result = await fetch('http://localhost:8082/api/books')
     let data = await result.json()
     this.setState({
       books: data,
